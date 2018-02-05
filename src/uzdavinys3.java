@@ -15,28 +15,28 @@ public class uzdavinys3 {
         switch (objektas){
             case 1:
                 System.out.println("Iveskite a krastine.");
-                double a = getCorrectNumber(sc);
+                double a = getCorrectDouble(sc);
                 System.out.println("Iveskite b krastine.");
-                double b = getCorrectNumber(sc);
+                double b = getCorrectDouble(sc);
                 System.out.println("Trikampio plotas yra " + trikampioPlotas(a,b));
                 break;
             case 2:
                 System.out.println("Iveskite a krastine.");
-                double a1 = getCorrectNumber(sc);
+                double a1 = getCorrectDouble(sc);
                 System.out.println("Iveskite b krastine.");
-                double b1 = getCorrectNumber(sc);
+                double b1 = getCorrectDouble(sc);
                 System.out.println("Staciakampio plotas yra " + staciakampioPlotas(a1,b1));
                 break;
             case 3:
                 System.out.println("Iveskite a krastine.");
-                double a2 = getCorrectNumber(sc);
+                double a2 = getCorrectDouble(sc);
                 System.out.println("Iveskite b krastine.");
-                double b2 = getCorrectNumber(sc);
+                double b2 = getCorrectDouble(sc);
                 System.out.println("Kvadratas plotas yra " + kvadratoPlotas(a2,b2));
                 break;
             case 4:
                 System.out.println("Iveskite spinduli r.");
-                double r = getCorrectNumber(sc);
+                double r = getCorrectDouble(sc);
                 System.out.println("apskritimo plotas yra " + apskritimoPlotas(r));
                 break;
             default:
@@ -75,6 +75,21 @@ public class uzdavinys3 {
                 System.out.println(("Juk sakiau ivest skaiciu!!!"));
                 sc.nextLine();
             }break;
+        }
+        return numb;
+    }
+    private static double getCorrectDouble (Scanner sc) {
+        double numb = 0.0;
+        while (true) {
+            System.out.println("Iveskite skaiciu");
+            try {
+                numb = sc.nextDouble();
+                break;
+
+            } catch (InputMismatchException e) {
+                System.out.println("Blogas skaicius");
+                sc.nextLine();
+            }
         }
         return numb;
     }
