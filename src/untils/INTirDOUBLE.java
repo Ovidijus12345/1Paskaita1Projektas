@@ -32,4 +32,15 @@ public class INTirDOUBLE {
         }
         return numb;
     }
+    public static double getCorrectDouble (Scanner sc, String numb){
+        double n = 0;
+        try {
+            n = Double.valueOf(numb);
+
+        }catch (NumberFormatException e){
+            System.out.println("Blogai ivestas skaicius, pakartoti");
+            n = getCorrectDouble(sc);
+        }
+        return n;
+    }
 }

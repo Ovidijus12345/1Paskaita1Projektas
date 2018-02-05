@@ -2,7 +2,7 @@ import untils.INTirDOUBLE;
 
 import java.util.Scanner;
 
-public class Paskaita1uzdavinys1 {
+public class Paskaita3uzdavinys1 {
     public static void main (String[]argm){
 
         Scanner sc = new Scanner(System.in);
