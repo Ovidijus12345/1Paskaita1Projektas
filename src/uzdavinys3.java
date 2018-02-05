@@ -1,4 +1,6 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
 
 public class uzdavinys3 {
     public static void main (String[]argm){
@@ -8,33 +10,33 @@ public class uzdavinys3 {
                 "\n3. Kvadrato plota, " +
                 "\n4. Askritimo plota.");
         Scanner sc = new Scanner(System.in);
-        int objektas = sc.nextInt();
+        int objektas = getCorrectNumber(sc);
 
         switch (objektas){
             case 1:
                 System.out.println("Iveskite a krastine.");
-                double a = sc.nextDouble();
+                double a = getCorrectNumber(sc);
                 System.out.println("Iveskite b krastine.");
-                double b = sc.nextDouble();
+                double b = getCorrectNumber(sc);
                 System.out.println("Trikampio plotas yra " + trikampioPlotas(a,b));
                 break;
             case 2:
                 System.out.println("Iveskite a krastine.");
-                double a1 = sc.nextDouble();
+                double a1 = getCorrectNumber(sc);
                 System.out.println("Iveskite b krastine.");
-                double b1 = sc.nextDouble();
+                double b1 = getCorrectNumber(sc);
                 System.out.println("Staciakampio plotas yra " + staciakampioPlotas(a1,b1));
                 break;
             case 3:
                 System.out.println("Iveskite a krastine.");
-                double a2 = sc.nextDouble();
+                double a2 = getCorrectNumber(sc);
                 System.out.println("Iveskite b krastine.");
-                double b2 = sc.nextDouble();
+                double b2 = getCorrectNumber(sc);
                 System.out.println("Kvadratas plotas yra " + kvadratoPlotas(a2,b2));
                 break;
             case 4:
                 System.out.println("Iveskite spinduli r.");
-                double r = sc.nextDouble();
+                double r = getCorrectNumber(sc);
                 System.out.println("apskritimo plotas yra " + apskritimoPlotas(r));
                 break;
             default:
@@ -62,5 +64,18 @@ public class uzdavinys3 {
         double pi = 3.1415;
         double apS = pi*(r*r);
         return  apS;
+    }
+    private static int getCorrectNumber(Scanner sc) {
+        int numb = 0;
+        while (true) {
+            System.out.println("Iveskite sakiciu");
+            try {
+                numb = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println(("Juk sakiau ivest skaiciu!!!"));
+                sc.nextLine();
+            }break;
+        }
+        return numb;
     }
 }
